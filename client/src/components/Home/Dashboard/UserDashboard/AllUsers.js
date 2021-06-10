@@ -21,6 +21,17 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell)
 
+const StyledTableAddressCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+    wordBreak: 'break-word',
+  },
+}))(TableCell)
+
 const StyledTableRow = withStyles((theme) => ({
   root: {
     '&:nth-of-type(odd)': {
@@ -33,7 +44,7 @@ const useStyles = makeStyles({
   table: {
     minWidth: 700,
 
-    '& td': {
+    '& userAddressTD': {
       wordBreak: 'break-word',
     },
   },
@@ -100,7 +111,9 @@ export default function AllUsers() {
                 </StyledTableCell>
                 <StyledTableCell align='center'>{user.email}</StyledTableCell>
                 <StyledTableCell align='center'>{user.mobile}</StyledTableCell>
-                <StyledTableCell align='center'>{user.address}</StyledTableCell>
+                <StyledTableAddressCell align='center'>
+                  {user.address}
+                </StyledTableAddressCell>
                 <StyledTableCell align='center'>
                   <DeleteIcon
                     htmlColor='red'
